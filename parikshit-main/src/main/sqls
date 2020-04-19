@@ -1,0 +1,8 @@
+insert into coursegroups(coursegroupname,description,region) values('महाराष्ट्र राज्यसेवा','महाराष्ट्र राज्य राज्यसेवा परीक्षा सराव गट','MH');
+insert into course(name,description,coursegroupid) values('पूर्व-परीक्षा','महाराष्ट्र राज्य राज्यसेवा पूर्व-परीक्षा सराव गट',1);
+insert into course(name,description,coursegroupid) values('मुख्य-परीक्षा','महाराष्ट्र राज्य राज्यसेवा मुख्य-परीक्षा सराव गट',1);
+insert into courseparts(name,description,courseid) values('इतिहास','महाराष्ट्र राज्य राज्यसेवा इतिहास पूर्व परीक्षा सराव गट',1);
+insert into courseparts(name,description,courseid) values('भूगोल','महाराष्ट्र राज्य राज्यसेवा भूगोल पूर्व परीक्षा सराव गट',1);
+insert into courseparts(name,description,courseid) values('चालू घडामोडी','महाराष्ट्र राज्य राज्यसेवा चालू घडामोडी पूर्व परीक्षा सराव गट',1);
+
+select * from course;

@@ -7,23 +7,18 @@
 # BlueJ files
 *.ctxt
 
-#Gradle and IntelliJ
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+.bin/
+.driver_vendor/
 .gradle/
 .idea/
 .settings/
-bin/
-build/
-gradle/
-
-#VSCode and Node
-.vscode/
-dist/
-node_modules/
+./project
 
 .classpath
 .project
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+Help.md
 
 # Package Files #
 *.jar
