@@ -41,11 +41,9 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
-  if (to.params.content == null || to.params.content == undefined) {
-    store.commit('setParentNav', { navType: 'CONTENT', current: null });
-  } else {
-    store.commit('setParentNav', { navType: 'CONTENT', current: to.params.content });
+  //generic route authentication logic should come here
+  if(to.name=='Home'){
+    store.commit('setCurrentItem',{type:'HOME',item:null});
   }
   next();
 });

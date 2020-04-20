@@ -4,16 +4,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-      parentNav:{parent:null,current:null}
+      currentItem:{type:null,item:null}
     },
     mutations:{
-        setParentNav(state,parentNav){
-            state.parentNav=parentNav;
+        setCurrentItem(state,currentItem){
+            state.currentItem=currentItem;
         }
     },
     getters:{
-        getParentNav(state){
-            return state.parentNav;
+        getCurrentItem(state){
+            return state.currentItem;
         }
     }
     

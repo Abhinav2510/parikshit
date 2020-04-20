@@ -11,6 +11,7 @@ public class Content {
         GROUP,
         EXAM,
         MODULE,
+        PART,
         LEARNINGMODULE,
         PRACTICEMODULE
     }
