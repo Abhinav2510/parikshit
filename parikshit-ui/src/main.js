@@ -10,8 +10,8 @@ import 'materialize-css'
 import Vuex from 'vuex'
 import store from './Stores/NavStore'
 
-
 Vue.use(Router)
+Vue.prototype.$backEndURL="http://localhost:8080/";
 const router = new Router({
   routes: [
     {
@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-const backEndBaseURL=""
+const backEndBaseURL="http://localhost:8080/";
 new Vue({
   el: '#app',
   render: h => h(App),

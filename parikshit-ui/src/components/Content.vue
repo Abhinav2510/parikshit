@@ -14,7 +14,7 @@
           <router-link
             active-class="active"
             class="waves-effect"
-            :to="{name:'ContentPart',params:{id:part.partId, contentId:content.testId,contentPart:part}}"
+            :to="{name:'ContentPart',params:{id:part.partId, contentId:content.testId,content:part}}"
           >Go to test</router-link>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default {
   methods: {
     getContent() {
       axios
-        .get("http://localhost:8080/contents/" + this.id)
+        .get(this.$backEndURL+"contents/" + this.id)
         .then(res => {
           this.content = res.data;
           store.commit('setCurrentItem',{type:'CONTENT',item:res.data});
