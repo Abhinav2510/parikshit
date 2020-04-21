@@ -78,7 +78,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "ContentPart",
+  name: "QuizComponent",
   props: {
     id: Number,
     contentId: Number,

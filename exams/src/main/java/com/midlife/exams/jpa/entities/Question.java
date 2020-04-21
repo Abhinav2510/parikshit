@@ -10,6 +10,9 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long questionId;
 
+    @ManyToOne
+     Content content;
+
     String questionText;
     String optionA;
     String optionB;
@@ -25,9 +28,6 @@ public class Question {
     }
 
     String answer;
-
-    @ManyToOne
-    TestContentPart part;
 
     @ManyToMany
     List<Tag> tagList;
@@ -88,12 +88,11 @@ public class Question {
         this.tagList = tagList;
     }
 
-    public TestContentPart getPart() {
-        return part;
+    public Content getContent() {
+        return content;
     }
 
-    public void setPart(TestContentPart part) {
-        this.part = part;
+    public void setContent(Content content) {
+        this.content = content;
     }
-
 }

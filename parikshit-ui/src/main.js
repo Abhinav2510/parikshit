@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import App from './App2.vue'
 import Home from './components/Home.vue'
 import Content from './components/Content.vue'
-import ContentPart from './components/ContentPart.vue'
+import QuizComponent from './components/QuizComponent.vue'
 import ScoreCard from './components/ScoreCard.vue'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css'
@@ -26,13 +26,13 @@ const router = new Router({
       props: true
     },
     {
-      path: '/contents/parts/:id',
-      name: 'ContentPart',
-      component: ContentPart,
+      path: '/contents/:id/quiz',
+      name: 'QuizComponent',
+      component: QuizComponent,
       props: true
     },
     {
-      path: '/contents/parts/:id/scorecard',
+      path: '/contents/:id/scorecard',
       name: 'ScoreCard',
       component: ScoreCard,
       props: true
@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-
+const backEndBaseURL=""
 new Vue({
   el: '#app',
   render: h => h(App),

@@ -8,12 +8,14 @@ public class Content {
 
 
     public enum TestContentType{
+        HOME,
         GROUP,
         EXAM,
         MODULE,
         PART,
         LEARNINGMODULE,
-        PRACTICEMODULE
+        PRACTICEMODULE,
+        LEAF
     }
 
     @Id
@@ -29,11 +31,15 @@ public class Content {
     @ManyToOne
     Content parentContent;
 
-    @OneToMany(mappedBy = "content")
-    List<TestContentPart> testPartsList;
 
     @OneToMany(mappedBy = "parentContent")
     List<Content> childContents;
+
+    @OneToMany(mappedBy = "content")
+    List<Additionaldata> additionalData;
+
+    @OneToMany(mappedBy = "content",fetch = FetchType.LAZY)
+    List<Question> questionList;
 
     public long getContentId() {
         return contentId;
@@ -59,14 +65,6 @@ public class Content {
         this.description = description;
     }
 
-    public List<TestContentPart> getTestPartsList() {
-        return testPartsList;
-    }
-
-    public void setTestPartsList(List<TestContentPart> testPartsList) {
-        this.testPartsList = testPartsList;
-    }
-
     public TestContentType getType() {
         return type;
     }
@@ -90,6 +88,22 @@ public class Content {
 
     public void setParentContent(Content parentContent) {
         this.parentContent = parentContent;
+    }
+
+    public List<Additionaldata> getAdditionalData() {
+        return additionalData;
+    }
+
+    public void setAdditionalData(List<Additionaldata> additionaldata) {
+        this.additionalData = additionaldata;
+    }
+
+    public List<Question> getQuestionList() {
+        return questionList;
+    }
+
+    public void setQuestionList(List<Question> questionList) {
+        this.questionList = questionList;
     }
 }
 

@@ -1,5 +1,7 @@
 package com.midlife.exams.web.models;
 
+import com.midlife.exams.jpa.entities.Question;
+
 import java.util.List;
 
 public class ContentDTO {
@@ -12,6 +14,7 @@ public class ContentDTO {
     String type;
 
     List<ChildContentDTO> childContents;
+    List<AdditionalDataDTO> additionaldata;
 
     public long getContentId() {
         return contentId;
@@ -61,9 +64,38 @@ public class ContentDTO {
         this.parentContentContentId = parentContentContentId;
     }
 
+    public List<AdditionalDataDTO> getAdditionaldata() {
+        return additionaldata;
+    }
+
+    public void setAdditionaldata(List<AdditionalDataDTO> additionaldata) {
+        this.additionaldata = additionaldata;
+    }
 
 }
-class ChildContentDTO{
+
+class AdditionalDataDTO{
+    String key;
+    String value;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+}
+
+class ChildContentDTO {
     long contentId;
     long parentContentContentId;
     String name;
@@ -112,4 +144,5 @@ class ChildContentDTO{
     public void setType(String type) {
         this.type = type;
     }
+
 }

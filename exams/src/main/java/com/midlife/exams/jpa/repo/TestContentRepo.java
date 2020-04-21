@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface TestContentRepo extends JpaRepository<Content,Long> {
     List<Content> getAllByType(TestContentType type);
+
+    List<Content> getAllByTypeAndParentContentContentId(TestContentType type,long parentContentId);
 }

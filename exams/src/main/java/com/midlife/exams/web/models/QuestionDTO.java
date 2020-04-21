@@ -1,5 +1,7 @@
 package com.midlife.exams.web.models;
 
+import javax.persistence.Transient;
+
 public class QuestionDTO{
 
     long questionId;
