@@ -15,7 +15,8 @@ public class Content {
         PART,
         LEARNINGMODULE,
         PRACTICEMODULE,
-        LEAF
+        LEAF,
+        QUIZ
     }
 
     @Id

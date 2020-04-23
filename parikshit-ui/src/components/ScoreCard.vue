@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>{{contentPart.name}}</h1>
+    <h1>{{content.name}}</h1>
     <span>    {{Math.round(score.percentage*100)/100}}</span>
   </div>
 </template>
@@ -10,7 +10,7 @@ export default {
   name: "ScoreCard",
   props: {
     score: Object,
-    contentPart:Object,
+    content:Object,
     id: Number
   }
 };

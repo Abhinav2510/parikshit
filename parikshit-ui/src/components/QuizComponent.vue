@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div v-show="!testStarted">
-      <h4>{{contentPart.name}}</h4>
+      <h4>{{content.name}}</h4>
       <hr />
-      <p>{{contentPart.description}}</p>
+      <p>{{content.description}}</p>
       <span v-if="questionsList.length==0">The questions are not added to the test yet</span>
       <div v-show="questionsList.length!=0" class="center-align">
         <button
@@ -81,8 +81,7 @@ export default {
   name: "QuizComponent",
   props: {
     id: Number,
-    contentId: Number,
-    contentPart: Object
+    content: Object
   },
 
   data() {
@@ -101,10 +100,8 @@ export default {
   },
   created() {
     this.getQuestions();
-    console.log("commiting" + this.contentPart)
-
-    this.$store.commit('setParentNav','PART',this.contentPart);
-
+    console.log("commiting" + this.content)
+    this.$store.commit('setCurrentItem',{type:'QUIZ',item:this.content});
   },
   methods: {
     nextQuestion(nextIndex) {
@@ -168,7 +165,7 @@ export default {
       this.$router.push({
         name: "ScoreCard",
         params: {
-          contentPart: this.contentPart,
+          content: this.content,
           score: {
             percentage: finalScore,
             correct: correctQuestions,
@@ -181,12 +178,9 @@ export default {
     getQuestions() {
       axios
         .get(
-          "http://localhost:8080/contents/" +
-            this.contentId +
-            "/parts/" +
+          this.$backEndURL+"/contents/" +
             this.id +
-            "/questions/"
-        )
+            "/questions/")
         .then(response => {
           this.questionsList = response.data;
         })

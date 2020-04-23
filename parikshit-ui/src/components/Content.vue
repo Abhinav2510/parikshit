@@ -11,10 +11,10 @@
           <p>{{part.description}}</p>
         </div>
         <div class="card-action">
-          <router-link
+          <router-link v-if="part.type=='QUIZ'"
             active-class="active"
             class="waves-effect"
-            :to="{name:'ContentPart',params:{id:part.partId, contentId:content.testId,content:part}}"
+            :to="{name:'QuizComponent',params:{id:part.contentId, contentId:content.testId,content:part}}"
           >Go to test</router-link>
         </div>
       </div>
