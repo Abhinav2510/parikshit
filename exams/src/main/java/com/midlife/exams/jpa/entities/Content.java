@@ -15,7 +15,7 @@ public class Content {
         PART,
         LEARNINGMODULE,
         PRACTICEMODULE,
-        LEAF,
+        VIDEO,
         QUIZ
     }
 
@@ -25,6 +25,8 @@ public class Content {
 
     String name;
     String description;
+
+    int positionInParentContent;
 
     @Enumerated(EnumType.STRING)
     TestContentType type;
@@ -105,6 +107,14 @@ public class Content {
 
     public void setQuestionList(List<Question> questionList) {
         this.questionList = questionList;
+    }
+
+    public int getPositionInParentContent() {
+        return positionInParentContent;
+    }
+
+    public void setPositionInParentContent(int positionInParentContent) {
+        this.positionInParentContent = positionInParentContent;
     }
 }
 

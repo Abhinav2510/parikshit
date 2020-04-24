@@ -7,10 +7,12 @@ import QuizComponent from './components/QuizComponent.vue'
 import ScoreCard from './components/ScoreCard.vue'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css'
-import Vuex from 'vuex'
 import store from './Stores/NavStore'
+import VueGoogleCharts from 'vue-google-charts'
 
-Vue.use(Router)
+Vue.use(VueGoogleCharts);
+
+Vue.use(Router);
 Vue.prototype.$backEndURL="http://localhost:8080/";
 const router = new Router({
   routes: [
@@ -47,7 +49,6 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-const backEndBaseURL="http://localhost:8080/";
 new Vue({
   el: '#app',
   render: h => h(App),

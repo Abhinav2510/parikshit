@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -48,7 +50,7 @@ public class ContentController {
         if (content == null) {
             return ResponseEntity.notFound().build();
         }
-
+        Collections.sort(content.getChildContents(), Comparator.comparingInt(Content::getPositionInParentContent));
         return ResponseEntity.ok(mapper.map(content, ContentDTO.class));
     }
 

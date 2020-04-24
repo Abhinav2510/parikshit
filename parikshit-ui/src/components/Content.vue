@@ -1,13 +1,13 @@
 <template>
 <div v-if="content!=null">
-  <div class="container">
+  <div v-if="content.type=='VIDEO'"><VideoContent :additionalData="content.additionaldata"/></div>
+  <div v-else class="container">
     <h1>{{content.name}}</h1>
     <p>{{content.description}}</p>
-
     <div v-for="part in content.childContents" v-bind:key="part.partId">
       <div class="card" v-if="part.type!='Test'">
         <div class="card-content">
-          <span class="card-title">{{part.name}}</span>
+          <router-link :to="{name:'Content',params:{id:part.contentId}}"><span class="card-title">{{part.name}}</span></router-link>
           <p>{{part.description}}</p>
         </div>
         <div class="card-action">
@@ -25,6 +25,7 @@
 <script>
 import store from '../Stores/NavStore'
 import axios from "axios";
+import VideoContent from './VideoContent'
 export default {
   name: "Content",
   props: {
@@ -51,6 +52,9 @@ export default {
   },
   watch:{
     '$route':'getContent'
+  },
+  components:{
+    VideoContent
   }
 };
 </script>>

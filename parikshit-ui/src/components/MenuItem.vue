@@ -34,7 +34,9 @@
       </li>
       <span v-for="child in currentItem.childContents" v-bind:key="child.contentId">
         <li>
-          <router-link :to="{name:'Content',params:{id:child.contentId}}">{{child.name}}</router-link>
+          <router-link :to="{name:'Content',params:{id:child.contentId}}">
+            <i class="material-icons" v-if="child.type==='VIDEO'">ondemand_video</i>
+            <i class="material-icons" v-if="child.type=='QUIZ'">help_outline</i>{{child.name}}</router-link>
         </li>
         <li>
           <div class="divider"></div>
