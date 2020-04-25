@@ -24,6 +24,7 @@
   height: 100%;
 }</style>
 <script>
+import ContentHelper from '../utils/ContentHelper'
 export default {
     name:'VideoContent',
     props:{
@@ -32,19 +33,15 @@ export default {
     methods:{
         getProperty(keyName){
             console.log(keyName)
-            for(var i=0;i<this.additionalData.length;i++){
-                if(this.additionalData[i].key===keyName)
-                    console.log(this.additionalData[i])
-                    return this.additionalData[i].value;
-            }
+            
         }
     },
     computed:{
         videoURL(){
-            return this.getProperty("URL");
+            return ContentHelper.getProperty(this.additionalData,"URL");
         },
         videoSource(){
-           return this.getProperty("SOURCE");
+           return ContentHelper.getProperty(this.additionalData,"SOURCE");
         }
     }
 }

@@ -15,6 +15,7 @@ public class Content {
         PART,
         LEARNINGMODULE,
         PRACTICEMODULE,
+        MARKDOWN,
         VIDEO,
         QUIZ
     }

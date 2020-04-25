@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
 import MenuItem from './components/MenuItem.vue'
 export default {
   name:"app",
