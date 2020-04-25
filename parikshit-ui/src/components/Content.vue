@@ -3,6 +3,9 @@
     <div v-if="content.type=='VIDEO'">
       <VideoContent :additionalData="content.additionaldata" />
     </div>
+    <div v-else-if="content.type=='MARKDOWN'">
+      <MarkDownContent :content="content"/>
+    </div>
     <div v-else-if="content.type=='QUIZ'">
       <QuizComponent :id="content.contentId" :content="content"/>
     </div>
@@ -31,8 +34,11 @@
   </div>
 </template>
 <script>
+import marked from 'marked';
 import store from "../Stores/NavStore";
 import axios from "axios";
+import MarkDownContent from './MarkDownContent'
+import ContentHelper from '../utils/ContentHelper'
 import QuizComponent from './QuizComponent';
 import VideoContent from "./VideoContent";
 export default {
@@ -64,7 +70,9 @@ export default {
   },
   components: {
     VideoContent,
-    QuizComponent
+    QuizComponent,
+    MarkDownContent
   }
+  
 };
 </script>>
