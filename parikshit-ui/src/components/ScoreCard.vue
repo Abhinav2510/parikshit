@@ -31,6 +31,9 @@ export default {
             'Attempted',
             'Incorrect'
           ]
+        },options:{
+          cutoutPercentage:50,
+          animation:{animateScale:true} 
         }
       });
   },

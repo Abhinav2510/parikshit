@@ -8,12 +8,12 @@ import ScoreCard from './components/ScoreCard.vue'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css'
 import store from './Stores/NavStore'
-import VueGoogleCharts from 'vue-google-charts'
-
-Vue.use(VueGoogleCharts);
+import axios from 'axios';
 
 Vue.use(Router);
 Vue.prototype.$backEndURL="http://localhost:8080/";
+Vue.prototype.$http=axios;
+
 const router = new Router({
   routes: [
     {

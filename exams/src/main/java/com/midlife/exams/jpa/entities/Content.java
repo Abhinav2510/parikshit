@@ -13,8 +13,6 @@ public class Content {
         EXAM,
         MODULE,
         PART,
-        LEARNINGMODULE,
-        PRACTICEMODULE,
         MARKDOWN,
         VIDEO,
         QUIZ
@@ -36,10 +34,10 @@ public class Content {
     Content parentContent;
 
 
-    @OneToMany(mappedBy = "parentContent")
+    @OneToMany(mappedBy = "parentContent",fetch = FetchType.LAZY)
     List<Content> childContents;
 
-    @OneToMany(mappedBy = "content")
+    @OneToMany(mappedBy = "content",fetch = FetchType.LAZY)
     List<Additionaldata> additionalData;
 
     @OneToMany(mappedBy = "content",fetch = FetchType.LAZY)

@@ -2,8 +2,14 @@
   <div id="app">
     <header>
       <nav>
-        <div class="nav-wrapper  purple darken-4">
-          <span style="cursor:pointer;" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></span>          
+        <div class="nav-wrapper purple darken-4">
+          <span
+            style="cursor:pointer;"
+            data-target="slide-out"
+            class="sidenav-trigger show-on-large"
+          >
+            <i class="material-icons">menu</i>
+          </span>
           <router-link :to="{name:'Home'}" class="brand-logo center">Parikshit</router-link>
         </div>
       </nav>
@@ -14,10 +20,10 @@
           <MenuItem></MenuItem>
         </ul>
       </div>
-    
+
       <div class="contents">
         <transition name="fade" mode="out-in">
-        <router-view></router-view>
+          <router-view></router-view>
         </transition>
       </div>
     </main>
@@ -25,15 +31,14 @@
 </template>
 
 <script>
-
-import MenuItem from './components/MenuItem.vue'
+import MenuItem from "./components/MenuItem.vue";
 export default {
-  name:"app",
-  mounted:function(){
+  name: "app",
+  mounted: function() {
     M.AutoInit();
-  } ,
-  components:{
+  },
+  components: {
     MenuItem
   }
-}
+};
 </script>>
