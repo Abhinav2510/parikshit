@@ -13,7 +13,7 @@ public class Content {
         EXAM,
         MODULE,
         PART,
-        MARKDOWN,
+        TEXTMARKDOWN,
         VIDEO,
         QUIZ
     }

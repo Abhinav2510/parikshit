@@ -11,8 +11,16 @@ export default{
             ["QUIZ","help_outline"],
             ["MODULE","view_quilt"],
             ["EXAM","menu_book"],
-            ["MARKDOWN","text_format"]
+            ["TEXTMARKDOWN","text_format"],
+            ["TEXT","text_format"]
+ 
         ]);
        return iconMap.get(type)==null?"account_balance":iconMap.get(type);
+    },
+    getContentGeneralType(type){
+        let generalTypeMap=new Map([
+            ["TEXTMARKDOWN","TEXT"]
+        ]);
+        return generalTypeMap.get(type)==null?type:generalTypeMap.get(type);
     }
 }
