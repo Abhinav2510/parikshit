@@ -2,6 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+
         <input
           v-model="searchParam"
           v-on:keyup.enter="searchCourseByQuery()"
@@ -10,58 +12,56 @@
           id="autocomplete-input"
         />
         <label for="autocomplete-input">Search contents</label>
-        <i class="material-icons prefix">search</i>
-      </div>
-      <div class="row">
-        <span class="col m2">
-          <label>
-            <input type="checkbox" @change="filterAdd('VIDEO')" />
-            <span>
-              <i class="material-icons prefix">ondemand_video</i> Video
-            </span>
-          </label>
-        </span>
-        <span class="col m2">
-          <label>
-            <input type="checkbox" @change="filterAdd('QUIZ')" />
-            <span>
-              <i class="material-icons prefix">help_outline</i> Quiz
-            </span>
-          </label>
-        </span>
-
-        <span class="col m2">
-          <label>
-            <input type="checkbox" @change="filterAdd('EXAM')" />
-            <span>
-              <i class="material-icons prefix">menu_book</i> Exam
-            </span>
-          </label>
-        </span>
-
-        <span class="col m2">
-          <label>
-            <input type="checkbox" @change="filterAdd('MODULE')" />
-            <span>
-              <i class="material-icons prefix">view_quilt</i> Module
-            </span>
-          </label>
-        </span>
-        
-        <span class="col m2">
-          <label>
-            <input type="checkbox" @change="filterAdd('TEXT')" />
-            <span>
-              <i class="material-icons prefix">{{getIcon('TEXT')}}</i> Text
-            </span>
-          </label>
-        </span>
       </div>
     </div>
     <div class="row">
-      <div v-if="searchResultsFiltered.length==0 && searchParam!='' && searchCompleted">
-        0 results 
-      </div>
+      <span class="col m2 s6">
+        <label>
+          <input type="checkbox" @change="filterAdd('VIDEO')" />
+          <span>
+            <i class="material-icons prefix">ondemand_video</i> Video
+          </span>
+        </label>
+      </span>
+      <span class="col m2 s6">
+        <label>
+          <input type="checkbox" @change="filterAdd('QUIZ')" />
+          <span>
+            <i class="material-icons prefix">help_outline</i> Quiz
+          </span>
+        </label>
+      </span>
+
+      <span class="col m2 s6">
+        <label>
+          <input type="checkbox" @change="filterAdd('EXAM')" />
+          <span>
+            <i class="material-icons prefix">menu_book</i> Exam
+          </span>
+        </label>
+      </span>
+
+      <span class="col m2 s6">
+        <label>
+          <input type="checkbox" @change="filterAdd('MODULE')" />
+          <span>
+            <i class="material-icons prefix">view_quilt</i> Module
+          </span>
+        </label>
+      </span>
+
+      <span class="col m2 s6">
+        <label>
+          <input type="checkbox" @change="filterAdd('TEXT')" />
+          <span>
+            <i class="material-icons prefix">{{getIcon('TEXT')}}</i> Text
+          </span>
+        </label>
+      </span>
+    </div>
+
+    <div class="row">
+      <div v-if="searchResultsFiltered.length==0 && searchParam!='' && searchCompleted">0 results</div>
       <div
         class="col m4 s12"
         v-for="content in searchResultsFiltered"
@@ -108,7 +108,12 @@ import ContentHelper from "../utils/ContentHelper";
 export default {
   name: "Home",
   data() {
-    return { searchParam: "", searchResults: [], filterMap: [],searchCompleted:false };
+    return {
+      searchParam: "",
+      searchResults: [],
+      filterMap: [],
+      searchCompleted: false
+    };
   },
   methods: {
     searchCourseByQuery() {
@@ -120,7 +125,7 @@ export default {
           console.log(res.data);
           this.searchResults = res.data;
           this.$forceUpdate();
-          this.searchCompleted=true;
+          this.searchCompleted = true;
         })
         .catch(() => {});
     },

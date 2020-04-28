@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/contents/")
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin
 public class ContentController {
     @Autowired
     ContentRepo contentRepo;

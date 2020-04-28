@@ -67,7 +67,7 @@ export default {
   methods: {
     getContent() {
       if (this.currentItem == null) {
-        axios.get("http://localhost:8080/contents/groups/").then(res => {
+        axios.get(this.$backEndURL+"/contents/groups/").then(res => {
           this.childList = res.data;
         });
       }
