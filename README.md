@@ -1,4 +1,4 @@
-# parikshit
+# parikshit  ![Java CI with Maven](https://github.com/Abhinav2510/parikshit/workflows/Java%20CI%20with%20Maven/badge.svg)
 An opensource LMS 
 
 #Todo
