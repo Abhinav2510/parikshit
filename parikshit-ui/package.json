@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --allowed-hosts 192.168.178.60",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
-    },
+  },
   "dependencies": {
     "chart.js": "^2.9.3",
     "marked": "^1.0.0",
