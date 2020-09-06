@@ -1,9 +1,9 @@
 package com.midlife.exams.web.controllers;
 
+import com.midlife.exams.jpa.dao.ContentDao;
+import com.midlife.exams.jpa.dao.QuestionsDAO;
 import com.midlife.exams.jpa.entities.Content;
 import com.midlife.exams.jpa.entities.Question;
-import com.midlife.exams.jpa.repo.QuestionsRepo;
-import com.midlife.exams.jpa.repo.ContentRepo;
 import com.midlife.exams.web.models.ContentDTO;
 import com.midlife.exams.web.models.QuestionDTO;
 import org.modelmapper.ModelMapper;
@@ -24,32 +24,35 @@ import java.util.Optional;
 @CrossOrigin
 public class ContentController {
     @Autowired
-    ContentRepo contentRepo;
-    @Autowired
-    QuestionsRepo questionsRepo;
+    private ContentDao contentDao;
 
     @Autowired
-    ModelMapper mapper;
+    private QuestionsDAO questionsDAO;
+
+    @Autowired
+    private ModelMapper mapper;
+
+    private static final Type contentDTOListType = new TypeToken<List<ContentDTO>>() {
+    }.getType();
+
+    public ContentController() {
+    }
 
     @GetMapping("/groups/")
     public List<ContentDTO> getAllGroups() {
-        Type type = new TypeToken<List<ContentDTO>>() {
-        }.getType();
-        return mapper.map(contentRepo.getAllByType(Content.TestContentType.GROUP), type);
+        return mapper.map(contentDao.getAllGroups(), contentDTOListType);
     }
 
 
     @GetMapping
     public List<ContentDTO> getAll() {
-        Type type = new TypeToken<List<ContentDTO>>() {
-        }.getType();
-        return mapper.map(contentRepo.findAll(), type);
+        return mapper.map(contentDao.getAll(), contentDTOListType);
     }
 
     @GetMapping
     @RequestMapping("/{contentId}")
     public ResponseEntity<ContentDTO> get(@PathVariable("contentId") long contentId) {
-        Content content = contentRepo.findById(contentId).orElse(null);
+        Content content = contentDao.getbyId(contentId);
         if (content == null) {
             return ResponseEntity.notFound().build();
         }
@@ -60,7 +63,7 @@ public class ContentController {
     @GetMapping
     @RequestMapping("/{contentId}/questions")
     public ResponseEntity<QuestionDTO> getQuestionsByContent(@PathVariable("contentId") long contentId) {
-        List<Question> questionsList = questionsRepo.findByContentContentId(contentId);
+        List<Question> questionsList = questionsDAO.getAllQuestionsByContentId(contentId);
         Type type = new TypeToken<List<QuestionDTO>>() {
         }.getType();
         return ResponseEntity.ok(mapper.map(questionsList, type));
@@ -72,7 +75,7 @@ public class ContentController {
             return null;
         }
         Type type=new TypeToken<List<ContentDTO>>(){}.getType();
-        return mapper.map(contentRepo.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(query.get(),query.get()),type);
+        return mapper.map(contentDao.searchContentByNameOrDescription(query.get()),type);
     }
 
 }
