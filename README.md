@@ -1,4 +1,4 @@
-# parikshit  ![Java CI with Maven](https://github.com/Abhinav2510/parikshit/workflows/Java%20CI%20with%20Maven/badge.svg)
+# parikshit  ![Java CI with Maven](https://github.com/Abhinav2510/parikshit/workflows/Java%20CI%20with%20Maven/badge.svg) ![CodeQL](https://github.com/Abhinav2510/parikshit/workflows/CodeQL/badge.svg)
 An opensource LMS 
 
 #Todo
