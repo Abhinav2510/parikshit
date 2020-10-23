@@ -31,14 +31,14 @@ public class Content {
     TestContentType type;
 
     @ManyToOne
-    Content parentContent;
+    private Content parentContent;
 
 
     @OneToMany(mappedBy = "parentContent",fetch = FetchType.LAZY)
     List<Content> childContents;
 
     @OneToMany(mappedBy = "content",fetch = FetchType.LAZY)
-    List<Additionaldata> additionalData;
+    private List<Additionaldata> additionalData;
 
     @OneToMany(mappedBy = "content",fetch = FetchType.LAZY)
     List<Question> questionList;
