@@ -177,10 +177,7 @@ export default {
     },
     getQuestions() {
       axios
-        .get(
-          this.$backEndURL+"/contents/" +
-            this.id +
-            "/questions/")
+        .get(`${this.$backEndURL}/contents/${this.id}/questions/`)
         .then(response => {
           this.questionsList = response.data;
         })

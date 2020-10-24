@@ -120,7 +120,7 @@ export default {
       console.log("fetching search result");
 
       this.$http
-        .get(this.$backEndURL + "/contents/search?query=" + this.searchParam)
+        .get(`${this.$backEndURL}/api/public/contents/search?query=${this.searchParam}`)
         .then(res => {
           console.log(res.data);
           this.searchResults = res.data;

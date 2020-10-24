@@ -55,7 +55,7 @@ export default {
   methods: {
     getContent() {
       axios
-        .get(this.$backEndURL + "contents/" + this.id)
+        .get(`${this.$backEndURL}/api/public/contents/${this.id}`)
         .then(res => {
           this.content = res.data;
           store.commit("setCurrentItem", { type: "CONTENT", item: res.data });

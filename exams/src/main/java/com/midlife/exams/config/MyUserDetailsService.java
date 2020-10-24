@@ -23,6 +23,9 @@ public class MyUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         UserEntity userEntity = usersRepo.findByUsername(userName);
+        if ( userEntity == null ) {
+            return null;
+        }
 
         return new User(userEntity.getUsername(),userEntity.getPassWord(),true,true,true,true, Collections.singleton((GrantedAuthority) () -> "user"));
     }
