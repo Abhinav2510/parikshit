@@ -11,7 +11,7 @@ import store from './Stores/NavStore'
 import axios from 'axios';
 
 Vue.use(Router);
-Vue.prototype.$backEndURL="http://localhost:8080/";
+Vue.prototype.$backEndURL="http://localhost:8080";
 Vue.prototype.$http=axios;
 
 const router = new Router({
