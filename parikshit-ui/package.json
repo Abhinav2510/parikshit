@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "marked": "^1.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "vue": "^2.5.11",
